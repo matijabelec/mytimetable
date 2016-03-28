@@ -1,12 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="mdl-layout mdl-layout__content">
-    <div class="page-content">
-        {% block content '' %}
+
+<style>
+{#.my-layout-transparent {background-color: black;}#}
+
+.my-layout-transparent .mdl-layout__header,
+.my-layout-transparent .mdl-layout__drawer-button{
+    color: white;
+}
+
+.my-layout-transparent .mdl-layout__header{
+    background-color: black;
+}
+</style>
+
+<div class="my-layout-transparent mdl-layout mdl-js-layout">
+    {% include '_partials/header.html.twig' %}
+    {% include '_partials/sidemenu.html.twig' %}
+    
+    <div class="mdl-layout__content">
+        <main>
+            {% block content '' %}
+        </main>
+        
+        {% include '_partials/footer.html.twig' %}
     </div>
 </div>
-
-{% include '_partials/footer.html.twig' %}
 
 {% endblock body %}
