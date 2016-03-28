@@ -1,0 +1,52 @@
+{% extends '_layout/default.html.twig' %}
+
+{% block content %}
+    <h1>Users list</h1>
+    
+    <button class="mdl-button mdl-js-button mdl-button--icon" onclick="location.href='{{ path('user_new') }}'">
+        <i class="material-icons">add</i>
+    </button>
+    
+    <div class="mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+        
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th class="mdl-data-table__cell--non-numeric">Username</th>
+                    <th class="mdl-data-table__cell--non-numeric">Email</th>
+                    <th>Is active?</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                    <td class="mdl-data-table__cell--non-numeric">{{ user.username }}</td>
+                    <td class="mdl-data-table__cell--non-numeric">{{ user.email }}</td>
+                    <td>{% if user.isActive %}Active{% else %}Inactive{% endif %}</td>
+                    <td>{%- if user.status == 1 -%}Usable
+                        {%- elseif user.status == 0 -%}Deleted
+                        {%- else -%}Unknown
+                        {%- endif -%}</td>
+                    <td>
+                        <button class="mdl-button mdl-js-button mdl-button--icon" onclick="location.href='{{ path('user_show', { 'id': user.id }) }}'">
+                            <i class="material-icons">description</i>
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-button--icon" onclick="location.href='{{ path('user_edit', { 'id': user.id }) }}'">
+                            <i class="material-icons">create</i>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        
+        <div class="mdl-layout-spacer"></div>
+    </div>
+    
+    
+{% endblock %}

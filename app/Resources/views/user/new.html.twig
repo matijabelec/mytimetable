@@ -1,0 +1,27 @@
+{% extends '_layout/default.html.twig' %}
+
+{% block content %}
+    <h1>User creation</h1>
+    
+    <button class="mdl-button mdl-js-button mdl-button--icon" onclick="location.href='{{ path('user_index') }}'">
+        <i class="material-icons">view_list</i>
+    </button>
+    
+    {{ form_start(form) }}
+        <div class="content-grid mdl-grid">
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                   <h2 class="mdl-card__title-text">New user</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    {{ form_widget(form) }}
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Create</button>
+                </div>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+        </div>
+    {{ form_end(form) }}
+{% endblock %}

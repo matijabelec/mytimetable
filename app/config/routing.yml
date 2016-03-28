@@ -1,0 +1,15 @@
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
+#back_api:
+#    type:     rest
+#    prefix:   /api
+#    resource: "@AppBundle/Resources/config/api-routing.yml"
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+logout:
+    path: /logout
