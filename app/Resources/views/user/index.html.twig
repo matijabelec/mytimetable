@@ -3,14 +3,10 @@
 {% block content %}
     <h1>Users list</h1>
     
-    <button class="mdl-button mdl-js-button mdl-button--icon" onclick="location.href='{{ path('user_new') }}'">
-        <i class="material-icons">add</i>
-    </button>
-    
     <div class="mdl-grid">
         <div class="mdl-layout-spacer"></div>
         
-        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width:100%">
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width:90%">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -48,5 +44,9 @@
         <div class="mdl-layout-spacer"></div>
     </div>
     
-    
+    <div style="text-align: right; padding: 12pt; z-index: 900;">
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="location.href='{{ path('user_new') }}'">
+            <i class="material-icons">add</i>
+        </button>
+    </div>
 {% endblock %}
